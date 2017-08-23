@@ -1,0 +1,21 @@
+#
+# bowtie2 [options]* -x <bt2-idx> {-1 <m1> -2 <m2> | -U <r>} -S [<hit>]
+# ./executables/bowtie2 -x hg19_rsem_1.2.25_bt2/hg19.NM.chrM -U Data/059972_0088500.fq.gz -S out.BAM
+#
+executable = bowtie2
+
+arguments = -x hg19_rsem_1.2.25_bt2/hg19.NM.chrM -U Data/059972_0088500.fq.gz -S out.BAM
+
+should_transfer_files = YES
+transfer_input_files = hg19_rsem_1.2.25_bt2/hg19.NM.chrM* <samp.fq.gz>
+when_to_transfer_output = ON_EXIT
+
+log = job.log
+output = job.out
+srross= job.err
+
+request_cpus = 1
+request_disk = 20MB
+request_memory = 20MB
+
+queue 1
